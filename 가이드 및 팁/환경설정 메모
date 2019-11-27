@@ -1,0 +1,67 @@
+1. git 설정하기
+    https://git-scm.com/ 
+
+    사이트에 접속해서 Download 2.24.0 for Windows 를 클릭 하여 다운로드 받습니다.
+    보통 자동 다운로드가 되나 안되면 자신의 bit에 맞는 설치파일을 선택하여 다운로드 합니다.
+
+    바로 다음버튼을 연타하여 설치 완료 합니다.
+
+    시작 + R 버튼을 클릭하여 실행창에서 cmd를 입력후 엔터
+
+    소스파일을 설치할 위치로 이동합니다.
+
+    해당 경로에서 아래 명령어를 입력해서 소스를 다운로드 받습니다.
+
+    git clone https://github.com/Belbos/DonggukPjt.git
+
+
+2. Visual Studio Code 설치 
+    https://code.visualstudio.com/
+
+    사이트에 접속해서 Download for Windows를 눌러 다운로드 받습니다.
+
+    그 이후로는 개속 다음버튼을 눌러 기본값으로 설치합니다.
+
+    설치가 왼료되면 좌측 메뉴 중 가장 하단에 있는 블럭 모양을 선택한 다음 
+    검색창에다가 한국어 라고 검색하여 "Korean Language Pack for Visual Studio Code"을 Install(설치) 합니다.
+
+    오른쪽 밑에 다시로드 (Reload) 하라는 메세지가 나오는데 안나오면 그냥 종료하고 다시 시작하면 
+    메뉴가 한글로 표시됩니다.
+
+    파일 -> 폴더 열기 -> 소스 경로 -> 폴더 Open 
+
+    위 순서대로 선택하여 내려 받은 소스 폴더를 입력합니다.
+
+
+3. 웹서버 (Apache ) 설치 및 셋팅
+    https://windows.php.net/download
+
+    사이트에 접속하면 "Binaries and sources Releases" 아래 드랍다운 박스를 선택하여
+    가장 높은 버전중 Thread Safe 버전을 받습니다. bit 는 자신의 컴퓨터에 맞는걸로.
+
+    다운로드가 완료되면 C드라이브에 Apache24 라는 폴더를 만들고 
+    해당 폴더에다가 다운로드된 압축파일을 압축해제 합니다.
+
+    경로가 "C:\Apache24" 이렇게 되어야 합니다.
+
+    그후 C:\Apache24\conf 경로의 httpd.conf 파일을 열어서 설정을 확인해 봅니다.
+
+
+    - 설정들 - 
+        - Apache의 설치 경로 입니다.
+        Define SRVROOT "c:/Apache24"
+
+        - 서버가 실행될 포트입니다.
+        - 기본 값은 80입니다. 만약 실행하는 컴퓨터내에 다른 포트를 쓰고있는
+          웹사이트가 있으면 변경하시면 됩니다.
+        Listen 8080
+
+    그외 설정들은 무시하셔도 됩니다. 
+
+        
+
+
+2. DB서버 (Sqlite)
+
+3. Php 
+4. git 
