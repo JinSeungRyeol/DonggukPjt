@@ -34,18 +34,15 @@
 
 
 3. 웹서버 (Apache ) 설치 및 셋팅
-    https://windows.php.net/download
+    https://www.apachelounge.com/download/
+ 
+    httpd-2.4.41-win64-VS16.zip 파일을 다운 받습니다.
 
-    사이트에 접속하면 "Binaries and sources Releases" 아래 드랍다운 박스를 선택하여
-    가장 높은 버전중 Thread Safe 버전을 받습니다. bit 는 자신의 컴퓨터에 맞는걸로.
-
-    다운로드가 완료되면 C드라이브에 Apache24 라는 폴더를 만들고 
-    해당 폴더에다가 다운로드된 압축파일을 압축해제 합니다.
+    다운로드가 완료되면 압축을 풀고 Apache24 파일을 C드라이드로 옮깁니다.
 
     경로가 "C:\Apache24" 이렇게 되어야 합니다.
 
     그후 C:\Apache24\conf 경로의 httpd.conf 파일을 열어서 설정을 확인해 봅니다.
-
 
     - 설정들 - 
         - Apache의 설치 경로 입니다.
@@ -58,10 +55,53 @@
 
     그외 설정들은 무시하셔도 됩니다. 
 
-        
+    여기까지 완료가 되었으면 Apache를 실행해 봐야합니다.   
+
+    실행 -> CMD 입력을 통해서 "C:\Apache24\bin" 으로 이동합니다.
+    
+    cd C:\Apache24\bin
+
+    해당 폴더에서 아래와 같은 명령어를 입력합니다.
+
+    httpd.exe -k install
+
+    그러면 이렇게 나와야 정상적입니다.
+
+    [Wed Nov 27 21:44:34.096587 2019] [mpm_winnt:error] [pid 8544:tid 528] AH00433: Apache2.4: Service is already installed.
+
+    만약 (OS 10013)액세스 권한에 의해 숨겨진 소켓에 액세스를 시도했습니다. 이러한 메세지가 나오면
+    포트가 겹치는 것이니 위  httpd.conf 설정에서 포트를 변경해주시고 다시 실행해 보시기 바랍니다.
+
+    그 폴더를 열어서 bin 폴더의 ApacheMonitor 를 실행하고 오른쪽아래 작은 아이콘에서
+    Start를 눌러 열어 보시기 바랍니다.
+
+    그후 인터넷 익스플로러를 열어서 아래 주소를 접속합니다.
+
+    localhost:8080 
+    또는 
+    localhost:80
+
+    만약 It works! 라는 메세지가 나오면 성공입니다!
 
 
 2. DB서버 (Sqlite)
+   SqlLite의 경우 이미 git에서 받은 소스중 sqlite 안에있는 Dongguk.db 파일로 설치가 되어있는 상태 입니다.
+
+   해당 DB를 열어보기 위해 클라이언트 프로그램을 설치하여야 하는데
+   https://sqlitebrowser.org/
+
+   위 경로에서 받아서 설치합니다. 
+   마찬가지 다음다음 눌러서 자동 설치합니다.
+
+    용량이 너무 커서 git 에는 넣지 못하였으나 Standard installer for 64-bit Windows 버전을 받는게 편합니다. 
+    bit는 컴퓨터에 맞는 버전으로 설치하세요
+
+
+
 
 3. Php 
-4. git 
+   https://windows.php.net/download
+   
+    사이트에 접속하면 "Binaries and sources Releases" 아래 드랍다운 박스를 선택하여
+    가장 높은 버전중 Thread Safe 버전을 받습니다. bit 는 자신의 컴퓨터에 맞는걸로.
+    zip 파일로 받으면 됩니다.
