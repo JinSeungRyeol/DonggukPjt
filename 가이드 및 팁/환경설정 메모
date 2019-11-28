@@ -22,7 +22,7 @@
 
     그 이후로는 개속 다음버튼을 눌러 기본값으로 설치합니다.
 
-    설치가 왼료되면 좌측 메뉴 중 가장 하단에 있는 블럭 모양을 선택한 다음 
+    설치가 완료되면 좌측 메뉴 중 가장 하단에 있는 블럭 모양을 선택한 다음 
     검색창에다가 한국어 라고 검색하여 "Korean Language Pack for Visual Studio Code"을 Install(설치) 합니다.
 
     오른쪽 밑에 다시로드 (Reload) 하라는 메세지가 나오는데 안나오면 그냥 종료하고 다시 시작하면 
@@ -144,7 +144,7 @@
     1) ;extension_dir 주석 제거
         아래와 같이 되도록 입력합니다. 가장앞에 ;가 포함되어있다면 ;를 지웁니다.
 
-        extension_dir = "C:\php\ext"
+        extension_dir = "C:\apm\php7\ext"
 
     참고사이트 : https://m.blog.naver.com/PostView.nhn?blogId=dragon20002&logNo=220956570456&proxyReferer=https%3A%2F%2Fwww.google.com%2F
 
@@ -176,7 +176,7 @@
 
     [sqlite3] 에 있는 extension_dir 를 아래와 같이 입력합니다.
     
-    sqlite3.extension_dir ="C:\php\ext"
+    sqlite3.extension_dir ="C:\apm\php7\ext"
 
 
     ******************* 아직 작성중 ************ 
