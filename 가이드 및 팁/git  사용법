@@ -32,3 +32,59 @@ git push origin master
  -> github 계정이 입력되어있지 않으면 계정을 묻는 창이 나타납니다.
  
 git clone "gihub 주소" 
+ -> 다른 PC에서 github 소스를 내려 받기 위한 명령어 입니다.
+ -> 맨처음 소스를 내려 받을떄만 사용합니다.
+
+
+
+
+
+****** 상황에 따른 명령어들 ******
+
+1. 다른 사람의 소스를 내려 받고자 할떄 .
+
+git clone "githun 주소" 
+
+ex) git clone https://github.com/Belbos/DonggukPjt
+
+2. 나의 소스를 처음으로 업로드 할때
+
+// git 셋팅
+git init  
+// git 변경파일 등록
+git add .
+// git 변경파일 로컬저장소 
+git commit -m "최초 업로드 (init)"
+// github 업로드
+git push origin master 
+
+// github 로그인 창이 나오면 로그인한다.
+
+3. 변경한 소스를 업로드 할떄.
+
+git add . 
+git commit -m "수정본 업로드 (20191128)"
+git push origin master 
+
+
+4. 다른사람이 소스를 업로드해서 다시 내려 받아야 할떄
+git pull
+
+
+
+
+****** 트러플 슈팅 ******
+
+1. Clone 이나 pull 이 안됨
+fatal: unable to access 'https://github.com/Belbos/DonggukPjt.git/': SSL certificate problem: self signed certificate in certificate chain
+
+위와 같은 메세지가 나오면서 Clone 명령어나 Pull 명령어가 안먹을 경우가 생김
+
+https://blog.naver.com/PostView.nhn?blogId=hahaysh&logNo=221356999879&categoryNo=12&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+
+위 사이트를 통해 해결하였음 
+
+git config --global http.sslVerify false
+
+이렇게 SSL 확인 옵션을 비활성화 하면됨.
+ 
