@@ -23,30 +23,35 @@
 							<!-- Header -->
 								<header id="header">
 									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									
 								</header>
 
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>DB Connection Test</h1>
+										<h1>DataBase Connection</h1>
 									</header>
 
-										<?php
-										//$db = new SQLite3('""');
-										
-										if(1==1){
-											echo "1;1";
-										}
-
-										// Result(or Error) Code : https://www.sqlite.org/rescode.html
-										//if($db->lastErrorCode() != 0){
-										//	echo "database connected";
-										//}
-										//else{
-										//	echo $db->lastErrorMsg();
-										//}
-										?>
 									
+									<?php
+									error_reporting(E_ALL);
+
+									ini_set("display_errors", 1);
+									
+
+									$host = '34.92.254.146';
+									$user = 'dongguk';
+									$pw = '12345';
+									$dbName = 'dongguk';
+									$mysqli = new mysqli($host, $user, $pw, $dbName);
+									if($mysqli){
+									echo "MySQL 연결 성공 <br /> 이 메세지가 보이면 정상적으로 DB연결이 완료된 상태입니다.";
+									}else{
+									echo "MySQL 실패";
+									}
+									?>
+									
+
 								</section>
 
 						</div>
@@ -57,10 +62,11 @@
 						<div class="inner">
 
 							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
+							<section id="login" class="alt" style="height: 4em;">
+									<center > 
+									<a href="#" >Login</a> |
+									<a href="signup.html" >Sign Up</a>
+									</center>
 								</section>
 
 							<!-- Menu -->
@@ -72,7 +78,8 @@
 										<li><a href="index.html">Homepage</a></li>
 										<li><a href="generic.html">Generic</a></li>
 										<li><a href="elements.html">Elements</a></li>
-										<li><a href="sample.html">Sample 화면</a></li>
+										<li><a href="sample.php">Sample 화면</a></li>
+										
 									</ul>
 								</nav>
 
