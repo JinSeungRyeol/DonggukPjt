@@ -287,15 +287,14 @@
 					</div>
 
 				<!-- Sidebar -->
-					<div id="sidebar">
+				<div id="sidebar">
 						<div class="inner">
 
 							<!-- Search -->
-							<section id="login" class="alt" style="height: 4em;">
-									<center > 
-									<a href="#" >Login</a> |
-									<a href="signup.html" >Sign Up</a>
-									</center>
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
 								</section>
 
 							<!-- Menu -->
@@ -305,10 +304,10 @@
 									</header>
 									<ul>
 										<li><a href="index.html">Homepage</a></li>
+										<li><a href="register.html">REGISTER</a></li>
 										<li><a href="generic.html">Generic</a></li>
 										<li><a href="elements.html">Elements</a></li>
 										<li><a href="sample.php">Sample 화면</a></li>
-										
 									</ul>
 								</nav>
 
@@ -320,19 +319,19 @@
 									<div class="mini-posts">
 										<article>
 											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+											<p>회의실 1사진이 들어갈 자리입니다.</p>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+											<p>회의 2 사진이 들어갈 자리! </p>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+											<p>대충 사진찍어서 하나더 넣습니다!</p>
 										</article>
 									</div>
 									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
+										<li><a href="#" class="button">간지용버튼</a></li>
 									</ul>
 								</section>
 
@@ -341,12 +340,11 @@
 									<header class="major">
 										<h2>Get in touch</h2>
 									</header>
-									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+									<p>저희 조는 GitHub를 이용해서 협업 하였습니다. 소스를 공유 해드립니다. 그외 문의나 서버 구축에 대해서 문의가 있으면 아래 정보로 연락을 주세요 </p>
 									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-										<li class="icon solid fa-phone">(000) 000-0000</li>
-										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-										Nashville, TN 00000-0000</li>
+										<li class="icon solid fa-envelope"><a href="#">maplelyy@naver.com</a></li>
+										<li class="icon solid fa-phone">mapelyy (카톡)</li>
+										<li class="icon solid fa-home"><a href="https://github.com/Belbos/DonggukPjt">https://github.com/Belbos/<br/>DonggukPjt.git</a></li>
 									</ul>
 								</section>
 
@@ -357,8 +355,6 @@
 
 						</div>
 					</div>
-
-			</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
