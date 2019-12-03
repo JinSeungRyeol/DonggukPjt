@@ -39,9 +39,9 @@
 									ini_set("display_errors", 1);
 									
 
-									$host = '34.92.254.146';
+									$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
 									$user = 'dongguk';
-									$pw = '12345';
+									$pw = '123456';
 									$dbName = 'dongguk';
 									$mysqli = new mysqli($host, $user, $pw, $dbName);
 									if($mysqli){
