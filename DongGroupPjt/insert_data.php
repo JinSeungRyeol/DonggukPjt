@@ -162,11 +162,11 @@
 									// error_reporting(E_ALL);
 
 									// ini_set("display_errors", 1);
-									$host = 'localhost';
-									$user = 'root';
+									$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+									$user = 'dongguk';
 									$pw = '123456';
 									$dbName = 'dongguk';
-									$port = 3307;
+									$port = 3306;
 									$mysqli = mysqli_connect($host, $user, $pw, $dbName, $port);
 
 									if (!empty($_POST)){
@@ -186,7 +186,7 @@
 											array_push($misc_list, $_POST['misc'.$count]);
 										}
 										$sql = "
-											INSERT INTO score VALUES(
+											INSERT INTO SCORE VALUES(
 												'$team_name',
 												'$exam_round',
 												'$af_list[0]','$af_list[1]','$af_list[2]','$af_list[3]','$af_list[4]',
@@ -204,7 +204,7 @@
 									}
 									if($mysqli){
 										echo "MySQL 접속 성공 <br>";
-										$sql = "SELECT * FROM score ORDER BY CREATED DESC";
+										$sql = "SELECT * FROM SCORE ORDER BY CREATED DESC";
 										$result = mysqli_query($mysqli, $sql);
 										echo "<table>";
 										echo "<tr>
