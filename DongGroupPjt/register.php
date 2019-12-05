@@ -361,6 +361,7 @@
 												echo "New record created successfully";
 												echo "<script>
 												alert('정상적으로 입력 되었습니다.');
+												location.href="http://15.164.162.39/";
 												</script>";
 											} else {
 												echo "Error: " . $sql . "<br>" . $conn->error;
