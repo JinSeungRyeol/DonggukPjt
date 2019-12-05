@@ -48,18 +48,13 @@
 										?>
 										<label>회차:
 											<select name="exam_round">
-												<option value="1">1회차</option>
-												<option value="2">2회차</option>
-												<option value="3">3회차</option>
-												<option value="4">4회차</option>
-												<option value="5">5회차</option>
-												<option value="6">6회차</option>
-												<option value="7">7회차</option>
-												<option value="8">8회차</option>
-												<option value="9">9회차</option>
-												<option value="10">10회차</option>
-												<option value="11">11회차</option>
-												<option value="12">12회차</option>
+											<?php
+
+												for($i=1; $i<=60; $i=$i+1){
+													echo "<option value=".$i.">".$i."회차</option>"
+												}
+											?>
+											
 											</select>
 										</label>
 									</label>
