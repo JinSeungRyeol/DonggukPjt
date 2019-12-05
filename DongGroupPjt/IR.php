@@ -69,14 +69,6 @@
 										</table>
 									</div>
 
-
-
-									<ul class="actions">
-
-										<li><input type="submit"  class="button big" value="REGISTER"><li>
-									</ul>
-	
-
 								</section>
 
 						</div>
