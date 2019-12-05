@@ -36,7 +36,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Incident Response</h1>
+										<h1>Anti Forensic Rank</h1>
 									</header>
 
 									<div class="table-wrapper">

@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>MISC Rank - Editorial by HTML5 UP</title>
+		<title>MISC - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -36,7 +36,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Incident Response</h1>
+										<h1>MISC Rank</h1>
 									</header>
 
 									<div class="table-wrapper">
@@ -45,27 +45,46 @@
 												<tr>
 													<th>Rank</th>
 													<th>Team</th>
-													<th>IR</th>
-													<th>IR100</th>
-													<th>IR200</th>
-													<th>IR300</th>
-													<th>IR400</th>
-													<th>IR500</th>
+													<th>MISC</th>
+													<th>MISC100</th>
+													<th>MISC200</th>
+													<th>MISC300</th>
+													<th>MISC400</th>
+													<th>MISC500</th>
 												</tr>
 											</thead>
 
 											<tbody>
-												<tr>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													
-												</tr>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT TEAM_NAME, RANK, MISC, MISC100, MISC200, MISC300, MISC400, MISC500
+													FROM
+													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500)) MISC, MAX(MISC100) MISC100, MAX(MISC200) MISC200, MAX(MISC300) MISC300, MAX(MISC400) MISC400, MAX(MISC500) MISC500
+													FROM SCORE , (SELECT @curRank := 0) r
+													GROUP BY TEAM_NAME) A
+													order by MISC DESC											
+													";
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['RANK']."</td>";
+														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td>".$row['MISC']."</td>";
+														echo "<td>".$row['MISC100']."</td>";
+														echo "<td>".$row['MISC200']."</td>";
+														echo "<td>".$row['MISC300']."</td>";
+														echo "<td>".$row['MISC400']."</td>";
+														echo "<td>".$row['MISC500']."</td>";
+														echo "</tr>";
+													}
+													?>													
+												
 											</tbody>
 										</table>
 									</div>

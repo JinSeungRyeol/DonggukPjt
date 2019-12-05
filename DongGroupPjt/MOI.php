@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>MOI Rank - Editorial by HTML5 UP</title>
+		<title>Mobile & Internet of Things - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -36,7 +36,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Incident Response</h1>
+										<h1>Mobile & Internet of Things Rank</h1>
 									</header>
 
 									<div class="table-wrapper">
@@ -45,27 +45,46 @@
 												<tr>
 													<th>Rank</th>
 													<th>Team</th>
-													<th>IR</th>
-													<th>IR100</th>
-													<th>IR200</th>
-													<th>IR300</th>
-													<th>IR400</th>
-													<th>IR500</th>
+													<th>MOI</th>
+													<th>MOI100</th>
+													<th>MOI200</th>
+													<th>MOI300</th>
+													<th>MOI400</th>
+													<th>MOI500</th>
 												</tr>
 											</thead>
 
 											<tbody>
-												<tr>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													
-												</tr>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT TEAM_NAME, RANK, MOI, MOI100, MOI200, MOI300, MOI400, MOI500
+													FROM
+													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(MOI100)+MAX(MOI200)+MAX(MOI300)+MAX(MOI400)+MAX(MOI500)) MOI, MAX(MOI100) MOI100, MAX(MOI200) MOI200, MAX(MOI300) MOI300, MAX(MOI400) MOI400, MAX(MOI500) MOI500
+													  FROM SCORE , (SELECT @curRank := 0) r
+													  GROUP BY TEAM_NAME) A
+													order by MOI DESC													
+													";
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['RANK']."</td>";
+														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td>".$row['MOI']."</td>";
+														echo "<td>".$row['MOI100']."</td>";
+														echo "<td>".$row['MOI200']."</td>";
+														echo "<td>".$row['MOI300']."</td>";
+														echo "<td>".$row['MOI400']."</td>";
+														echo "<td>".$row['MOI500']."</td>";
+														echo "</tr>";
+													}
+													?>													
+												
 											</tbody>
 										</table>
 									</div>

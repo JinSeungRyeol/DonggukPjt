@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>IR Rank - Editorial by HTML5 UP</title>
+		<title>Incident Response - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -36,7 +36,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Incident Response</h1>
+										<h1>Incident Response Rank</h1>
 									</header>
 
 									<div class="table-wrapper">
@@ -55,17 +55,36 @@
 											</thead>
 
 											<tbody>
-												<tr>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													
-												</tr>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT TEAM_NAME, RANK, IR, IR100, IR200, IR300, IR400, IR500
+													FROM
+													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(IR100)+MAX(IR200)+MAX(IR300)+MAX(IR400)+MAX(IR500)) IR, MAX(IR100) IR100, MAX(IR200) IR200, MAX(IR300) IR300, MAX(IR400) IR400, MAX(IR500) IR500
+													FROM SCORE , (SELECT @curRank := 0) r
+													GROUP BY TEAM_NAME) A
+													order by IR DESC;
+													";
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['RANK']."</td>";
+														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td>".$row['IR']."</td>";
+														echo "<td>".$row['IR100']."</td>";
+														echo "<td>".$row['IR200']."</td>";
+														echo "<td>".$row['IR300']."</td>";
+														echo "<td>".$row['IR400']."</td>";
+														echo "<td>".$row['IR500']."</td>";
+														echo "</tr>";
+													}
+													?>													
+												
 											</tbody>
 										</table>
 									</div>

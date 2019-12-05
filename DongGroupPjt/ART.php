@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>ART - Editorial by HTML5 UP</title>
+		<title>Artifact - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -36,7 +36,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Incident Response</h1>
+										<h1>Artifact Rank</h1>
 									</header>
 
 									<div class="table-wrapper">
@@ -45,27 +45,46 @@
 												<tr>
 													<th>Rank</th>
 													<th>Team</th>
-													<th>IR</th>
-													<th>IR100</th>
-													<th>IR200</th>
-													<th>IR300</th>
-													<th>IR400</th>
-													<th>IR500</th>
+													<th>ART</th>
+													<th>ART100</th>
+													<th>ART200</th>
+													<th>ART300</th>
+													<th>ART400</th>
+													<th>ART500</th>
 												</tr>
 											</thead>
 
 											<tbody>
-												<tr>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													
-												</tr>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT TEAM_NAME, RANK, ART, ART100, ART200, ART300, ART400, ART500
+													FROM
+													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(ART100)+MAX(ART200)+MAX(ART300)+MAX(ART400)+MAX(ART500)) ART, MAX(ART100) ART100, MAX(ART200) ART200, MAX(ART300) ART300, MAX(ART400) ART400, MAX(ART500) ART500
+													FROM SCORE , (SELECT @curRank := 0) r
+													GROUP BY TEAM_NAME) A
+													order by ART DESC;													
+													";
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['RANK']."</td>";
+														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td>".$row['ART']."</td>";
+														echo "<td>".$row['ART100']."</td>";
+														echo "<td>".$row['ART200']."</td>";
+														echo "<td>".$row['ART300']."</td>";
+														echo "<td>".$row['ART400']."</td>";
+														echo "<td>".$row['ART500']."</td>";
+														echo "</tr>";
+													}
+													?>													
+												
 											</tbody>
 										</table>
 									</div>
