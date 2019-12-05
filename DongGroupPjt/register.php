@@ -434,7 +434,7 @@
 									</article>
 								</div>
 								<ul class="actions">
-									<li><a href="#" class="button">간지용버튼</a></li>
+									<li><a href="#"  onclick="alert('이 메세지는 화면마다 다릅니다. ㅎㅎ');return false;"class="button">간지용버튼</a></li>
 								</ul>
 							</section>
 

@@ -335,7 +335,7 @@
 										</article>
 									</div>
 									<ul class="actions">
-										<li><a href="#" class="button">간지용버튼</a></li>
+										<li><a href="#" onclick="alert('화면마다 눌러보는건가요? 시간 많으시네요.');return false;" class="button">간지용버튼</a></li>
 									</ul>
 								</section>
 

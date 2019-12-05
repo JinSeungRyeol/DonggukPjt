@@ -149,7 +149,7 @@
 									</article>
 								</div>
 								<ul class="actions">
-									<li><a href="#" class="button">간지용버튼</a></li>
+									<li><a href="#" onclick="alert('졸립군요.');return false;" class="button">간지용버튼</a></li>
 								</ul>
 							</section>
 
