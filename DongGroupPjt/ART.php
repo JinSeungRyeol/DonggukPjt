@@ -68,7 +68,7 @@
 													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(ART100)+MAX(ART200)+MAX(ART300)+MAX(ART400)+MAX(ART500)) ART, MAX(ART100) ART100, MAX(ART200) ART200, MAX(ART300) ART300, MAX(ART400) ART400, MAX(ART500) ART500
 													FROM SCORE , (SELECT @curRank := 0) r
 													GROUP BY TEAM_NAME) A
-													order by RANK ASC												
+													order by ART DESC												
 													";
 													$result = mysqli_query($mysqli, $sql);
 													while($row = mysqli_fetch_array($result)){

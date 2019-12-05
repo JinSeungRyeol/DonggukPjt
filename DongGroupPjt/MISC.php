@@ -68,7 +68,7 @@
 													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500)) MISC, MAX(MISC100) MISC100, MAX(MISC200) MISC200, MAX(MISC300) MISC300, MAX(MISC400) MISC400, MAX(MISC500) MISC500
 													FROM SCORE , (SELECT @curRank := 0) r
 													GROUP BY TEAM_NAME) A
-													order by RANK ASC													
+													order by MISC DESC													
 													";
 													$result = mysqli_query($mysqli, $sql);
 													while($row = mysqli_fetch_array($result)){
