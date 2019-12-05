@@ -17,9 +17,9 @@
 			function validateForm(){
 
 				alert("test");
-				var team_name = document.getElementsByName("TEAM_NAME").value;
-				alert("team_name : "+ team_name);
-				if(team_name.Value == ""){
+				var team_name = document.getElementById("TEAM_NAME");
+				alert("team_name : "+ team_name.value);
+				if(team_name.value == ""){
 					alert("팀 이름은 필수값 입니다.");
 					return false;
 				}
