@@ -68,7 +68,7 @@
 													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(MOI100)+MAX(MOI200)+MAX(MOI300)+MAX(MOI400)+MAX(MOI500)) MOI, MAX(MOI100) MOI100, MAX(MOI200) MOI200, MAX(MOI300) MOI300, MAX(MOI400) MOI400, MAX(MOI500) MOI500
 													  FROM SCORE , (SELECT @curRank := 0) r
 													  GROUP BY TEAM_NAME) A
-													order by MOI DESC													
+													order by RANK ASC													
 													";
 													$result = mysqli_query($mysqli, $sql);
 													while($row = mysqli_fetch_array($result)){

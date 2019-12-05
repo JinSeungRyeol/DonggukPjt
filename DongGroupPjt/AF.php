@@ -68,7 +68,7 @@
 													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF, MAX(AF100) AF100, MAX(AF200) AF200, MAX(AF300) AF300, MAX(AF400) AF400, MAX(AF500) AF500
 													  FROM SCORE , (SELECT @curRank := 0) r
 													  GROUP BY TEAM_NAME) A
-													order by AF DESC";
+													order by RANK ASC";
 													$result = mysqli_query($mysqli, $sql);
 													while($row = mysqli_fetch_array($result)){
 														echo "<tr>";
