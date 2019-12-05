@@ -15,13 +15,71 @@
 		<script src="assets/js/jquery.min.js"></script>
 		<script>
 			function validateForm(){
+				if(confirm("팀 정보를 입력하시겠습니까?"))
+ 				{
 
-				var team_name = document.getElementById("TEAM_NAME");
-				if(team_name.value == ""){
-					alert("팀 이름은 필수값 입니다.");
-					team_name.focus();
+					
+					var team_name = document.getElementById("TEAM_NAME");
+					if(team_name.value == ""){
+						alert("팀 이름은 필수값 입니다.");
+						team_name.focus();
+						return false;
+					}
+
+					var TEAM_EMAIL = document.getElementById("TEAM_EMAIL");
+					if(TEAM_EMAIL.value == ""){
+						alert("팀 대표 메일은 필수값 입니다.");
+						TEAM_EMAIL.focus();
+						return false;
+					}
+
+					var PASSWORD = document.getElementById("PASSWORD");
+					if(PASSWORD.value == ""){
+						alert("비밀번호는 필수값 입니다.");
+						PASSWORD.focus();
+						return false;
+					}
+
+					var C_password = document.getElementById("C_password");
+					if(C_password.value == ""){
+						alert("비밀번호 확인 해주세요.");
+						C_password.focus();
+						return false;
+					}
+
+					if(PASSWORD.value != C_password.value){
+						alert("비밀번호를 다시한번 확인해주십시오.");
+						C_password.focus();
+						return false;
+					}
+
+					
+
+					var member_1 = document.getElementById("member_1");
+					if(member_1.value == ""){
+						alert("팀원 1은 필수 값입니다. 이름을 입력해주세요.");
+						member_1.focus();
+						return false;
+					}
+
+					var affiliation_1 = document.getElementById("affiliation_1");
+					if(affiliation_1.value == ""){
+						alert("팀원 1의 소속을 입력해주십시오.");
+						affiliation_1.focus();
+						return false;
+					}
+
+					var email_1 = document.getElementById("email_1");
+					if(email_1.value == ""){
+						alert("팀원 1의 이메일을 입력해주십시오.");
+						email_1.focus();
+						return false;
+					}
+				}else{
 					return false;
 				}
+
+				return true;
 	
 			}
 		</script>
