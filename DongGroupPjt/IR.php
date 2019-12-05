@@ -38,6 +38,37 @@
 										<h1>Incident Response</h1>
 									</header>
 
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Rank</th>
+													<th>Team</th>
+													<th>IR</th>
+													<th>IR100</th>
+													<th>IR200</th>
+													<th>IR300</th>
+													<th>IR400</th>
+													<th>IR500</th>
+												</tr>
+											</thead>
+
+											<tbody>
+												<tr>
+													<td>Null</td>
+													<td>Null</td>
+													<td>Null</td>
+													<td>Null</td>
+													<td>Null</td>
+													<td>Null</td>
+													<td>Null</td>
+													<td>Null</td>
+													
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
 
 
 									<ul class="actions">
