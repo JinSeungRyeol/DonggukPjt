@@ -45,27 +45,45 @@
 												<tr>
 													<th>Rank</th>
 													<th>Team</th>
-													<th>IR</th>
-													<th>IR100</th>
-													<th>IR200</th>
-													<th>IR300</th>
-													<th>IR400</th>
-													<th>IR500</th>
+													<th>AF</th>
+													<th>AF100</th>
+													<th>AF200</th>
+													<th>AF300</th>
+													<th>AF400</th>
+													<th>AF500</th>
 												</tr>
 											</thead>
 
 											<tbody>
-												<tr>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													
-												</tr>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT TEAM_NAME, RANK, AF, AF100, AF200, AF300, AF400, AF500
+													FROM
+													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF, MAX(AF100) AF100, MAX(AF200) AF200, MAX(AF300) AF300, MAX(AF400) AF400, MAX(AF500) AF500
+													  FROM SCORE , (SELECT @curRank := 0) r
+													  GROUP BY TEAM_NAME) A
+													order by AF DESC";
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['RANK']."</td>";
+														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td>".$row['AF']."</td>";
+														echo "<td>".$row['AF100']."</td>";
+														echo "<td>".$row['AF200']."</td>";
+														echo "<td>".$row['AF300']."</td>";
+														echo "<td>".$row['AF400']."</td>";
+														echo "<td>".$row['AF500']."</td>";
+														echo "</tr>";
+													}
+													?>													
+												
 											</tbody>
 										</table>
 									</div>
