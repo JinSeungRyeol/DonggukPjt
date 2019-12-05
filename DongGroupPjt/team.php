@@ -33,7 +33,7 @@
 									</header>
 
 									<span class="image object">
-										<img src="images/team.png" style="max-width: 100%;" alt="" />
+									<img src="images/team.PNG" style="max-width: 100%;" alt="" />
 									</span>
 									
 									
