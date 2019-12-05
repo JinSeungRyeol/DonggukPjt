@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Total Rank - Editorial by HTML5 UP</title>
+		<title>Total Point - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -36,7 +36,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>ToTal Rank</h1>
+										<h1>Total Rank</h1>
 									</header>
 
 									<div class="table-wrapper">
@@ -45,27 +45,50 @@
 												<tr>
 													<th>Rank</th>
 													<th>Team</th>
+													<th>AF</th>
 													<th>IR</th>
-													<th>IR100</th>
-													<th>IR200</th>
-													<th>IR300</th>
-													<th>IR400</th>
-													<th>IR500</th>
+													<th>MOI</th>
+													<th>ART</th>
+													<th>MISC</th>
 												</tr>
 											</thead>
 
 											<tbody>
-												<tr>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													<td>Null</td>
-													
-												</tr>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT TEAM_NAME, RANK, AF, IR, MOI, ART, MISC
+													FROM
+													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank
+															, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF
+															, (MAX(IR100)+MAX(IR200)+MAX(IR300)+MAX(IR400)+MAX(IR500)) IR
+															, (MAX(MOI100)+MAX(MOI200)+MAX(MOI300)+MAX(MOI400)+MAX(MOI500)) MOI
+															, (MAX(ART100)+MAX(ART200)+MAX(ART300)+MAX(ART400)+MAX(ART500)) ART
+															, (MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500)) MISC 
+													  FROM SCORE , (SELECT @curRank := 0) r
+													  GROUP BY TEAM_NAME) A
+													order by RANK DESC;
+																								
+													";
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['RANK']."</td>";
+														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td>".$row['AF']."</td>";
+														echo "<td>".$row['IR']."</td>";
+														echo "<td>".$row['MOI']."</td>";
+														echo "<td>".$row['ART']."</td>";
+														echo "<td>".$row['MISC']."</td>";
+														echo "</tr>";
+													}
+													?>																		
+												
 											</tbody>
 										</table>
 									</div>
