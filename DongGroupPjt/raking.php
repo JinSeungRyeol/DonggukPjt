@@ -306,7 +306,7 @@
 										<li><a href="register.php">REGISTER</a></li>
 										<li><a href="raking.php">ranking</a></li>
 										<li><a href="sample.php">DB Connection</a></li>
-									</ul>소
+									</ul>
 								</nav>
 
 							<!-- Section -->
