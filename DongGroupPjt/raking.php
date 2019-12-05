@@ -51,7 +51,7 @@
 											<?php
 
 												for($i=1; $i<=60; $i=$i+1){
-													echo "<option value=".$i.">".$i."회차</option>"
+													echo "<option value=".$i.">".$i."회차</option>";
 												}
 											?>
 											
