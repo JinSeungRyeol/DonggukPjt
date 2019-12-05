@@ -206,9 +206,9 @@
 										$result = mysqli_query($mysqli, $sql);
 										echo "<table>";
 										echo "<tr>
-											<th>팀명</th>
-											<th>회차</th>
-											<th>생성날짜</th>
+											<th style='width: 40px'>팀명</th>
+											<th style='width: 40px'>회차</th>
+											<th style='width: 40px'>생성날짜</th>
 											<th>AF100</th>
 											<th>AF200</th>
 											<th>AF300</th>
