@@ -103,7 +103,7 @@
 										</article>
 									</div>
 									<ul class="actions">
-										<li><a href="#" class="button">간지용버튼</a></li>
+										<li><a href="#" onclick="alert('아무기능없습니다.');return false;" class="button">그닝있는버튼</a></li>
 									</ul>
 								</section>
 
