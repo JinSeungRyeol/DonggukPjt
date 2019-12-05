@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>MISC Rank - Editorial by HTML5 UP</title>
+		<title>MOI Rank - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -98,7 +98,7 @@
 										<li>
 											<span class="opener">Ranking</span>
 											<ul>
-												<li><a href="rank.html"> # Total </a></li>
+												<li><a href="total.php"> # Total </a></li>
 												<li><a href="AF.php"> # Anti Forensic </a></li>
 												<li><a href="IR.php"> # Incident Response </a></li>
 												<li><a href="MOI.php"> # Mobile & Internet of Things </a></li>
