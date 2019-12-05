@@ -63,9 +63,9 @@
 													$dbName = 'dongguk';
 													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 													$sql = "
-													SELECT TEAM_NAME, RANK, MISC, MISC100, MISC200, MISC300, MISC400, MISC500
+													SELECT TEAM_NAME,  @curRank := @curRank + 1 AS RANK, MISC, MISC100, MISC200, MISC300, MISC400, MISC500
 													FROM
-													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500)) MISC, MAX(MISC100) MISC100, MAX(MISC200) MISC200, MAX(MISC300) MISC300, MAX(MISC400) MISC400, MAX(MISC500) MISC500
+													(SELECT TEAM_NAME, (MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500)) MISC, MAX(MISC100) MISC100, MAX(MISC200) MISC200, MAX(MISC300) MISC300, MAX(MISC400) MISC400, MAX(MISC500) MISC500
 													FROM SCORE , (SELECT @curRank := 0) r
 													GROUP BY TEAM_NAME) A
 													order by MISC DESC													

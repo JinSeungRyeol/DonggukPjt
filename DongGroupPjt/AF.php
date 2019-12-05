@@ -63,9 +63,9 @@
 													$dbName = 'dongguk';
 													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 													$sql = "
-													SELECT TEAM_NAME, RANK, AF, AF100, AF200, AF300, AF400, AF500
+													SELECT TEAM_NAME,  @curRank := @curRank + 1 AS RANK, AF, AF100, AF200, AF300, AF400, AF500
 													FROM
-													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF, MAX(AF100) AF100, MAX(AF200) AF200, MAX(AF300) AF300, MAX(AF400) AF400, MAX(AF500) AF500
+													(SELECT TEAM_NAME, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF, MAX(AF100) AF100, MAX(AF200) AF200, MAX(AF300) AF300, MAX(AF400) AF400, MAX(AF500) AF500
 													  FROM SCORE , (SELECT @curRank := 0) r
 													  GROUP BY TEAM_NAME) A
 													order by AF DESC";

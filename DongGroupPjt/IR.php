@@ -63,9 +63,9 @@
 													$dbName = 'dongguk';
 													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 													$sql = "
-													SELECT TEAM_NAME, RANK, IR, IR100, IR200, IR300, IR400, IR500
+													SELECT TEAM_NAME,  @curRank := @curRank + 1 AS RANK, IR, IR100, IR200, IR300, IR400, IR500
 													FROM
-													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(IR100)+MAX(IR200)+MAX(IR300)+MAX(IR400)+MAX(IR500)) IR, MAX(IR100) IR100, MAX(IR200) IR200, MAX(IR300) IR300, MAX(IR400) IR400, MAX(IR500) IR500
+													(SELECT TEAM_NAME, (MAX(IR100)+MAX(IR200)+MAX(IR300)+MAX(IR400)+MAX(IR500)) IR, MAX(IR100) IR100, MAX(IR200) IR200, MAX(IR300) IR300, MAX(IR400) IR400, MAX(IR500) IR500
 													FROM SCORE , (SELECT @curRank := 0) r
 													GROUP BY TEAM_NAME) A
 													order by IR DESC

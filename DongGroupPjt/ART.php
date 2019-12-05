@@ -63,9 +63,9 @@
 													$dbName = 'dongguk';
 													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 													$sql = "
-													SELECT TEAM_NAME, RANK, ART, ART100, ART200, ART300, ART400, ART500
+													SELECT TEAM_NAME, @curRank := @curRank + 1 AS RANK, ART, ART100, ART200, ART300, ART400, ART500
 													FROM
-													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank, (MAX(ART100)+MAX(ART200)+MAX(ART300)+MAX(ART400)+MAX(ART500)) ART, MAX(ART100) ART100, MAX(ART200) ART200, MAX(ART300) ART300, MAX(ART400) ART400, MAX(ART500) ART500
+													(SELECT TEAM_NAME, (MAX(ART100)+MAX(ART200)+MAX(ART300)+MAX(ART400)+MAX(ART500)) ART, MAX(ART100) ART100, MAX(ART200) ART200, MAX(ART300) ART300, MAX(ART400) ART400, MAX(ART500) ART500
 													FROM SCORE , (SELECT @curRank := 0) r
 													GROUP BY TEAM_NAME) A
 													order by ART DESC												
