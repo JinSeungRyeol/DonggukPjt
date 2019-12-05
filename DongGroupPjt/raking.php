@@ -37,10 +37,9 @@
 											$user = 'dongguk';
 											$pw = '123456';
 											$dbName = 'dongguk';
-											$port = 3306;
-											$mysqli = mysqli_connect($host, $user, $pw, $dbName, $port);
-											echo "<select name="."team_name".">";
-											$sql = "SELECT * FROM REGISTATION";
+											$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+											echo "<select name=team_name>";
+											$sql = "SELECT * FROM REGISTRATION";
 											$result = mysqli_query($mysqli, $sql);
 											while($row = mysqli_fetch_array($result)){
 												echo "<option value=".$row['TEAM_NAME'].">".$row["TEAM_NAME"]."</option>";
@@ -166,8 +165,7 @@
 									$user = 'dongguk';
 									$pw = '123456';
 									$dbName = 'dongguk';
-									$port = 3306;
-									$mysqli = mysqli_connect($host, $user, $pw, $dbName, $port);
+									$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 
 									if (!empty($_POST)){
 										$af_list = array();
