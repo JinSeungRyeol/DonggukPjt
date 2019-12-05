@@ -192,7 +192,7 @@
 												'$moi_list[0]','$moi_list[1]','$moi_list[2]','$moi_list[3]','$moi_list[4]',
 												'$art_list[0]','$art_list[1]','$art_list[2]','$art_list[3]','$art_list[4]',
 												'$misc_list[0]','$misc_list[1]','$misc_list[2]','$misc_list[3]','$misc_list[4]',
-												NOW()
+												NOW(),NOW()
 											)
 										";
 										$result = mysqli_query($mysqli, $sql);
