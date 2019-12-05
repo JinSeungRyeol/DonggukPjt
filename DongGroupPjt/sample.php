@@ -75,11 +75,11 @@
 									</header>
 									<ul>
 										<li><a href="index.html">Homepage</a></li>
-										<li><a href="register.html">REGISTER</a></li>
-										<li><a href="insert_data.php">ranking</a></li>
+										<li><a href="register.php">REGISTER</a></li>
+										<li><a href="raking.php">ranking</a></li>
 										<li><a href="generic.html">Generic</a></li>
 										<li><a href="elements.html">Elements</a></li>
-										<li><a href="sample.php">Sample 화면</a></li>
+										<li><a href="sample.php">DB Connection</a></li>
 									</ul>
 								</nav>
 

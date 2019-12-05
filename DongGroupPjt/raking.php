@@ -28,41 +28,41 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>DataBase Connection</h1>
+										<h1>Raking Insert</h1>
 									</header>
 									<form action="" method="POST">
 									<label>팀명:
-									<?php
-										$host = 'localhost';
-										$user = 'root';
-										$pw = '123456';
-										$dbName = 'dongguk';
-										$port = 3307;
-										$mysqli = mysqli_connect($host, $user, $pw, $dbName, $port);
-										echo "<select name="."team_name".">";
-										$sql = "SELECT * FROM team";
-										$result = mysqli_query($mysqli, $sql);
-										while($row = mysqli_fetch_array($result)){
-											echo "<option value=".$row['TEAM_NAME'].">".$row["TEAM_NAME"]."</option>";
-										}
-										echo "</select>";
-									?>
-									<label>회차:
-										<select name="exam_round">
-											<option value="1">1회차</option>
-											<option value="2">2회차</option>
-											<option value="3">3회차</option>
-											<option value="4">4회차</option>
-											<option value="5">5회차</option>
-											<option value="6">6회차</option>
-											<option value="7">7회차</option>
-											<option value="8">8회차</option>
-											<option value="9">9회차</option>
-											<option value="10">10회차</option>
-											<option value="11">11회차</option>
-											<option value="12">12회차</option>
-										</select>
-									</label>
+										<?php
+											$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+											$user = 'dongguk';
+											$pw = '123456';
+											$dbName = 'dongguk';
+											$port = 3306;
+											$mysqli = mysqli_connect($host, $user, $pw, $dbName, $port);
+											echo "<select name="."team_name".">";
+											$sql = "SELECT * FROM REGISTATION";
+											$result = mysqli_query($mysqli, $sql);
+											while($row = mysqli_fetch_array($result)){
+												echo "<option value=".$row['TEAM_NAME'].">".$row["TEAM_NAME"]."</option>";
+											}
+											echo "</select>";
+										?>
+										<label>회차:
+											<select name="exam_round">
+												<option value="1">1회차</option>
+												<option value="2">2회차</option>
+												<option value="3">3회차</option>
+												<option value="4">4회차</option>
+												<option value="5">5회차</option>
+												<option value="6">6회차</option>
+												<option value="7">7회차</option>
+												<option value="8">8회차</option>
+												<option value="9">9회차</option>
+												<option value="10">10회차</option>
+												<option value="11">11회차</option>
+												<option value="12">12회차</option>
+											</select>
+										</label>
 									</label>
 									<table>
 										<thead>
@@ -203,7 +203,7 @@
 										}
 									}
 									if($mysqli){
-										echo "MySQL 접속 성공 <br>";
+										/*echo "MySQL 접속 성공 <br>";*/
 										$sql = "SELECT * FROM SCORE ORDER BY CREATED DESC";
 										$result = mysqli_query($mysqli, $sql);
 										echo "<table>";
@@ -304,10 +304,11 @@
 									</header>
 									<ul>
 										<li><a href="index.html">Homepage</a></li>
-										<li><a href="register.html">REGISTER</a></li>
+										<li><a href="register.php">REGISTER</a></li>
+										<li><a href="raking.php">ranking</a></li>
 										<li><a href="generic.html">Generic</a></li>
 										<li><a href="elements.html">Elements</a></li>
-										<li><a href="sample.php">Sample 화면</a></li>
+										<li><a href="sample.php">DB Connection</a></li>
 									</ul>
 								</nav>
 
