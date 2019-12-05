@@ -154,7 +154,7 @@
 									</article>
 								</div>
 								<ul class="actions">
-									<li><a href="#" class="button">간지용버튼</a></li>
+									<li><a href="#" onclick="alert('좋은거 가르쳐 드릴까요...? 싫습니다.');return false;" class="button">간지용버튼</a></li>
 								</ul>
 							</section>
 
