@@ -45,6 +45,7 @@
 												<tr>
 													<th>Rank</th>
 													<th>Team</th>
+													<th>Total Point</th>
 													<th>AF</th>
 													<th>IR</th>
 													<th>MOI</th>
@@ -62,7 +63,7 @@
 													$dbName = 'dongguk';
 													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 													$sql = "
-													SELECT TEAM_NAME, RANK, AF, IR, MOI, ART, MISC
+													SELECT RANK, TEAM_NAME,(AF+IR+MOI+ART+MISC) TOTAL, AF, IR, MOI, ART, MISC
 													FROM
 													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank
 															, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF
@@ -72,14 +73,14 @@
 															, (MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500)) MISC 
 													  FROM SCORE , (SELECT @curRank := 0) r
 													  GROUP BY TEAM_NAME) A
-													order by RANK ASC;
-																								
+													order by TOTAL DESC																								
 													";
 													$result = mysqli_query($mysqli, $sql);
 													while($row = mysqli_fetch_array($result)){
 														echo "<tr>";
 														echo "<td>".$row['RANK']."</td>";
 														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td>".$row['TOTAL']."</td>";
 														echo "<td>".$row['AF']."</td>";
 														echo "<td>".$row['IR']."</td>";
 														echo "<td>".$row['MOI']."</td>";
