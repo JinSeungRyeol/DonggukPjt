@@ -28,40 +28,41 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Raking Insert</h1>
+										<h1>DataBase Connection</h1>
 									</header>
 									<form action="" method="POST">
 									<label>팀명:
-										<?php
-											$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
-											$user = 'dongguk';
-											$pw = '123456';
-											$dbName = 'dongguk';
-											$mysqli = mysqli_connect($host, $user, $pw, $dbName);
-											echo "<select name=team_name>";
-											$sql = "SELECT * FROM REGISTRATION";
-											$result = mysqli_query($mysqli, $sql);
-											while($row = mysqli_fetch_array($result)){
-												echo "<option value=".$row['TEAM_NAME'].">".$row["TEAM_NAME"]."</option>";
-											}
-											echo "</select>";
-										?>
-										<label>회차:
-											<select name="exam_round">
-												<option value="1">1회차</option>
-												<option value="2">2회차</option>
-												<option value="3">3회차</option>
-												<option value="4">4회차</option>
-												<option value="5">5회차</option>
-												<option value="6">6회차</option>
-												<option value="7">7회차</option>
-												<option value="8">8회차</option>
-												<option value="9">9회차</option>
-												<option value="10">10회차</option>
-												<option value="11">11회차</option>
-												<option value="12">12회차</option>
-											</select>
-										</label>
+									<?php
+										$host = 'localhost';
+										$user = 'root';
+										$pw = '123456';
+										$dbName = 'dongguk';
+										$port = 3307;
+										$mysqli = mysqli_connect($host, $user, $pw, $dbName, $port);
+										echo "<select name="."team_name".">";
+										$sql = "SELECT * FROM team";
+										$result = mysqli_query($mysqli, $sql);
+										while($row = mysqli_fetch_array($result)){
+											echo "<option value=".$row['TEAM_NAME'].">".$row["TEAM_NAME"]."</option>";
+										}
+										echo "</select>";
+									?>
+									<label>회차:
+										<select name="exam_round">
+											<option value="1">1회차</option>
+											<option value="2">2회차</option>
+											<option value="3">3회차</option>
+											<option value="4">4회차</option>
+											<option value="5">5회차</option>
+											<option value="6">6회차</option>
+											<option value="7">7회차</option>
+											<option value="8">8회차</option>
+											<option value="9">9회차</option>
+											<option value="10">10회차</option>
+											<option value="11">11회차</option>
+											<option value="12">12회차</option>
+										</select>
+									</label>
 									</label>
 									<table>
 										<thead>
@@ -165,7 +166,8 @@
 									$user = 'dongguk';
 									$pw = '123456';
 									$dbName = 'dongguk';
-									$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+									$port = 3306;
+									$mysqli = mysqli_connect($host, $user, $pw, $dbName, $port);
 
 									if (!empty($_POST)){
 										$af_list = array();
@@ -192,7 +194,7 @@
 												'$moi_list[0]','$moi_list[1]','$moi_list[2]','$moi_list[3]','$moi_list[4]',
 												'$art_list[0]','$art_list[1]','$art_list[2]','$art_list[3]','$art_list[4]',
 												'$misc_list[0]','$misc_list[1]','$misc_list[2]','$misc_list[3]','$misc_list[4]',
-												NOW(),NOW()
+												NOW()
 											)
 										";
 										$result = mysqli_query($mysqli, $sql);
@@ -201,14 +203,14 @@
 										}
 									}
 									if($mysqli){
-										/*echo "MySQL 접속 성공 <br>";*/
-										$sql = "SELECT * FROM SCORE ORDER BY CREATE_DT DESC";
+										echo "MySQL 접속 성공 <br>";
+										$sql = "SELECT * FROM SCORE ORDER BY CREATED DESC";
 										$result = mysqli_query($mysqli, $sql);
 										echo "<table>";
 										echo "<tr>
-											<th style='width: 40px'>팀명</th>
-											<th style='width: 40px'>회차</th>
-											<th style='width: 40px'>생성날짜</th>
+											<th>팀명</th>
+											<th>회차</th>
+											<th>생성날짜</th>
 											<th>AF100</th>
 											<th>AF200</th>
 											<th>AF300</th>
@@ -273,8 +275,7 @@
 									} else{
 										echo "MySQL 접속 실패";
 										echo "<script>
-										alert('DB에 접속할수 없습니다. ');
-										location.href='http://15.164.162.39/';
+										alert('로그인 정보 확인하세요.');
 										</script>";
 									}
 									?>
@@ -303,9 +304,10 @@
 									</header>
 									<ul>
 										<li><a href="index.html">Homepage</a></li>
-										<li><a href="register.php">REGISTER</a></li>
-										<li><a href="raking.php">ranking</a></li>
-										<li><a href="sample.php">DB Connection</a></li>
+										<li><a href="register.html">REGISTER</a></li>
+										<li><a href="generic.html">Generic</a></li>
+										<li><a href="elements.html">Elements</a></li>
+										<li><a href="sample.php">Sample 화면</a></li>
 									</ul>
 								</nav>
 
