@@ -126,6 +126,7 @@
 											</ul>
 										</li>
 										<li><a href="sample.php">DB Connection</a></li>
+										<li><a href="team.php">Team 평가</a></li>
 									</ul>
 							</nav>
 

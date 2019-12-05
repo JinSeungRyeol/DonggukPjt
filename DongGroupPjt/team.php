@@ -29,27 +29,13 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>DataBase Connection</h1>
+										<h1>팀원 기여도 평가</h1>
 									</header>
 
+									<span class="image object">
+										<img src="images/team.png" style="max-width: 100%;" alt="" />
+									</span>
 									
-									<?php
-									error_reporting(E_ALL);
-
-									ini_set("display_errors", 1);
-									
-
-									$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
-									$user = 'dongguk';
-									$pw = '123456';
-									$dbName = 'dongguk';
-									$mysqli = new mysqli($host, $user, $pw, $dbName);
-									if($mysqli){
-									echo "MySQL 연결 성공 <br /> 이 메세지가 보이면 정상적으로 DB연결이 완료된 상태입니다.";
-									}else{
-									echo "MySQL 실패";
-									}
-									?>
 									
 
 								</section>
@@ -89,7 +75,6 @@
 												</ul>
 											</li>
 											<li><a href="sample.php">DB Connection</a></li>
-											<li><a href="team.php">Team 평가</a></li>
 										</ul>
 								</nav>
 
