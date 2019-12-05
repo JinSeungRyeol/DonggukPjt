@@ -202,7 +202,7 @@
 									}
 									if($mysqli){
 										/*echo "MySQL 접속 성공 <br>";*/
-										$sql = "SELECT * FROM SCORE ORDER BY CREATED DESC";
+										$sql = "SELECT * FROM SCORE ORDER BY CREATE_DT DESC";
 										$result = mysqli_query($mysqli, $sql);
 										echo "<table>";
 										echo "<tr>
