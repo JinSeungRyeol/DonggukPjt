@@ -69,14 +69,6 @@
 										</table>
 									</div>
 
-
-
-									<ul class="actions">
-
-										<li><input type="submit"  class="button big" value="REGISTER"><li>
-									</ul>
-	
-
 								</section>
 
 						</div>
@@ -99,11 +91,22 @@
 									<h2>Menu</h2>
 								</header>
 								<ul>
-									<li><a href="index.html">Homepage</a></li>
-									<li><a href="register.php">REGISTER</a></li>
-									<li><a href="raking.php">ranking</a></li>
-									<li><a href="sample.php">DB Connection</a></li>
-								</ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="register.php">REGISTER</a></li>
+										<li><a href="raking.php">Rank Insert</a></li>
+										<li>
+											<span class="opener">Ranking</span>
+											<ul>
+												<li><a href="rank.html"> # Total </a></li>
+												<li><a href="AF.php"> # Anti Forensic </a></li>
+												<li><a href="IR.php"> # Incident Response </a></li>
+												<li><a href="MOI.php"> # Mobile & Internet of Things </a></li>
+												<li><a href="ART.php"> # Artifact </a></li>
+												<li><a href="MISC.php"> # MISC </a></li>
+											</ul>
+										</li>
+										<li><a href="sample.php">DB Connection</a></li>
+									</ul>
 							</nav>
 
 						<!-- Section -->
