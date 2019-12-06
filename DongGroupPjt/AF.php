@@ -141,12 +141,16 @@
 									</article>
 									<article>
 										<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-										<p>각자의 생활을 하며 Git으로 협업!</p>
+										<p>생활을 하며 Git으로 협업!</p>
 									</article>
 									<article>
 										<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
 										<p>각자의 자리에서 맡은 역할만큼 공정하게 코딩합니다.</p>
 									</article>
+									<article>
+											<a href="#" class="image"><img src="images/pic10.jpg" alt="" /></a>
+											<p>조원 모두 고생 하셨습니다.</p>
+										</article>
 								</div>
 								<ul class="actions">
 									<li><a href="#" onclick="alert('이건 버그입니다. 영어로 벌레죠.');return false;" class="button">간지용버튼</a></li>
