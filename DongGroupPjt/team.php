@@ -31,10 +31,11 @@
 									<header class="main">
 										<h1>팀원 기여도 평가</h1>
 									</header>
-
+									<section id="banner">
 									<span class="image object">
 									<img src="images/team.PNG" style="max-width: 100%;" alt="" />
 									</span>
+									</section>
 									
 									
 
