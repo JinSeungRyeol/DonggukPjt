@@ -63,9 +63,9 @@
 													$dbName = 'dongguk';
 													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 													$sql = "
-													SELECT TEAM_NAME, @curRank := @curRank + 1 AS RANK, (AF+IR+MOI+ART+MISC) TOTAL, AF, IR, MOI, ART, MISC
+													SELECT RANK, TEAM_NAME,(AF+IR+MOI+ART+MISC) TOTAL, AF, IR, MOI, ART, MISC
 													FROM
-													(SELECT TEAM_NAME, 
+													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS RANK
 															, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF
 															, (MAX(IR100)+MAX(IR200)+MAX(IR300)+MAX(IR400)+MAX(IR500)) IR
 															, (MAX(MOI100)+MAX(MOI200)+MAX(MOI300)+MAX(MOI400)+MAX(MOI500)) MOI
