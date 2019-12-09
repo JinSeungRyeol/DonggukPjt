@@ -307,11 +307,7 @@
 												die("Connection failed: " . $conn->connect_error);
 											} 
 											// 화면값 셋팅 
-										
 
-										
-
-										
 											$category = $_POST['category'];
 											$TEAM_NAME = $_POST['TEAM_NAME'];
 											$TEAM_EMAIL = $_POST['TEAM_EMAIL'];

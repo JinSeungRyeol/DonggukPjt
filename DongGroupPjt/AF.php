@@ -73,7 +73,7 @@
 													while($row = mysqli_fetch_array($result)){
 														echo "<tr>";
 														echo "<td>".$row['RANK']."</td>";
-														echo "<td>".$row['TEAM_NAME']."</td>";
+														echo "<td> <a href=/team_point.php?team_name=".$row['TEAM_NAME'].">".$row['TEAM_NAME']."</a></td>";
 														echo "<td>".$row['AF']."</td>";
 														echo "<td>".$row['AF100']."</td>";
 														echo "<td>".$row['AF200']."</td>";

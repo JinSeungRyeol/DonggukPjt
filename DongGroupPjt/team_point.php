@@ -11,6 +11,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="assets/js/jquery.min.js"></script>
+		<style>
+		.out {
+		width: 100%;
+		text-align: center;
+		}
+		.in {
+		display: inline-block;
+		}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -36,23 +45,26 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Total Rank</h1>
+										<h1>Team Point</h1>
 									</header>
 
-									<div class="table-wrapper">
+									<div class="table-wrapper out">
+										<div class="in"> 
+										<h2><?php 
+											echo $_GET['team_name'];
+										?><h2>
+										</div>
 										<table class="alt">
 											<thead>
 												<tr>
-													<th>Rank</th>
-													<th>Team</th>
 													<th>AF</th>
-													<th>IR</th>
-													<th>MOI</th>
-													<th>ART</th>
-													<th>MISC</th>
+													<th>AF100</th>
+													<th>AF200</th>
+													<th>AF300</th>
+													<th>AF400</th>
+													<th>AF500</th>
 												</tr>
 											</thead>
-
 											<tbody>
 											
 													<?php
@@ -62,35 +74,189 @@
 													$dbName = 'dongguk';
 													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
 													$sql = "
-													SELECT TEAM_NAME, RANK, AF, IR, MOI, ART, MISC
-													FROM
-													(SELECT TEAM_NAME,  @curRank := @curRank + 1 AS rank
-															, (MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500)) AF
-															, (MAX(IR100)+MAX(IR200)+MAX(IR300)+MAX(IR400)+MAX(IR500)) IR
-															, (MAX(MOI100)+MAX(MOI200)+MAX(MOI300)+MAX(MOI400)+MAX(MOI500)) MOI
-															, (MAX(ART100)+MAX(ART200)+MAX(ART300)+MAX(ART400)+MAX(ART500)) ART
-															, (MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500)) MISC 
-													  FROM SCORE , (SELECT @curRank := 0) r
-													  GROUP BY TEAM_NAME) A
-													order by RANK ASC;
-																								
-													";
+													SELECT MAX(AF100)+MAX(AF200)+MAX(AF300)+MAX(AF400)+MAX(AF500) AF, 
+													       MAX(AF100) AF100, MAX(AF200) AF200, MAX(AF300) AF300, MAX(AF400) AF400, 
+													       MAX(AF500) AF500 
+													  FROM SCORE WHERE TEAM_NAME = '".$_GET['team_name']."'";
+													
 													$result = mysqli_query($mysqli, $sql);
 													while($row = mysqli_fetch_array($result)){
 														echo "<tr>";
-														echo "<td>".$row['RANK']."</td>";
-														echo "<td>".$row['TEAM_NAME']."</td>";
 														echo "<td>".$row['AF']."</td>";
-														echo "<td>".$row['IR']."</td>";
-														echo "<td>".$row['MOI']."</td>";
-														echo "<td>".$row['ART']."</td>";
-														echo "<td>".$row['MISC']."</td>";
+														echo "<td>".$row['AF100']."</td>";
+														echo "<td>".$row['AF200']."</td>";
+														echo "<td>".$row['AF300']."</td>";
+														echo "<td>".$row['AF400']."</td>";
+														echo "<td>".$row['AF500']."</td>";
 														echo "</tr>";
 													}
 													?>																		
 												
 											</tbody>
 										</table>
+
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>IR</th>
+													<th>IR100</th>
+													<th>IR200</th>
+													<th>IR300</th>
+													<th>IR400</th>
+													<th>IR500</th>
+												</tr>
+											</thead>
+											<tbody>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT MAX(IR100)+MAX(IR200)+MAX(IR300)+MAX(IR400)+MAX(IR500) IR, MAX(IR100) IR100
+														, MAX(IR200) IR200, MAX(IR300) IR300, MAX(IR400) IR400, MAX(IR500) IR500 
+													FROM SCORE WHERE TEAM_NAME = '".$_GET['team_name']."'";
+													
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['IR']."</td>";
+														echo "<td>".$row['IR100']."</td>";
+														echo "<td>".$row['IR200']."</td>";
+														echo "<td>".$row['IR300']."</td>";
+														echo "<td>".$row['IR400']."</td>";
+														echo "<td>".$row['IR500']."</td>";
+														echo "</tr>";
+													}
+													?>																		
+												
+											</tbody>
+										</table>
+
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>MOI</th>
+													<th>MOI100</th>
+													<th>MOI200</th>
+													<th>MOI300</th>
+													<th>MOI400</th>
+													<th>MOI500</th>
+												</tr>
+											</thead>
+											<tbody>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT MAX(MOI100)+MAX(MOI200)+MAX(MOI300)+MAX(MOI400)+MAX(MOI500) MOI, MAX(MOI100) MOI100
+														, MAX(MOI200) MOI200, MAX(MOI300) MOI300, MAX(MOI400) MOI400, MAX(MOI500) MOI500 
+													FROM SCORE WHERE TEAM_NAME = '".$_GET['team_name']."'";
+													
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['MOI']."</td>";
+														echo "<td>".$row['MOI100']."</td>";
+														echo "<td>".$row['MOI200']."</td>";
+														echo "<td>".$row['MOI300']."</td>";
+														echo "<td>".$row['MOI400']."</td>";
+														echo "<td>".$row['MOI500']."</td>";
+														echo "</tr>";
+													}
+													?>																		
+												
+											</tbody>
+										</table>
+
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>ART</th>
+													<th>ART100</th>
+													<th>ART200</th>
+													<th>ART300</th>
+													<th>ART400</th>
+													<th>ART500</th>
+												</tr>
+											</thead>
+											<tbody>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT MAX(ART100)+MAX(ART200)+MAX(ART300)+MAX(ART400)+MAX(ART500) ART, MAX(ART100) ART100
+														, MAX(ART200) ART200, MAX(ART300) ART300, MAX(ART400) ART400, MAX(ART500) ART500 
+													FROM SCORE WHERE TEAM_NAME = '".$_GET['team_name']."'";
+													
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['ART']."</td>";
+														echo "<td>".$row['ART100']."</td>";
+														echo "<td>".$row['ART200']."</td>";
+														echo "<td>".$row['ART300']."</td>";
+														echo "<td>".$row['ART400']."</td>";
+														echo "<td>".$row['ART500']."</td>";
+														echo "</tr>";
+													}
+													?>																		
+												
+											</tbody>
+										</TABLE>
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>MISC</th>
+													<th>MISC100</th>
+													<th>MISC200</th>
+													<th>MISC300</th>
+													<th>MISC400</th>
+													<th>MISC500</th>
+												</tr>
+											</thead>
+											<tbody>
+											
+													<?php
+													$host = 'dongguk.cfaahuakkfgn.ap-northeast-2.rds.amazonaws.com';
+													$user = 'dongguk';
+													$pw = '123456';
+													$dbName = 'dongguk';
+													$mysqli = mysqli_connect($host, $user, $pw, $dbName);
+													$sql = "
+													SELECT MAX(MISC100)+MAX(MISC200)+MAX(MISC300)+MAX(MISC400)+MAX(MISC500) MISC, MAX(MISC100) MISC100
+														, MAX(MISC200) MISC200, MAX(MISC300) MISC300, MAX(MISC400) MISC400, MAX(MISC500) MISC500 
+													FROM SCORE WHERE TEAM_NAME = '".$_GET['team_name']."'";
+													
+													$result = mysqli_query($mysqli, $sql);
+													while($row = mysqli_fetch_array($result)){
+														echo "<tr>";
+														echo "<td>".$row['MISC']."</td>";
+														echo "<td>".$row['MISC100']."</td>";
+														echo "<td>".$row['MISC200']."</td>";
+														echo "<td>".$row['MISC300']."</td>";
+														echo "<td>".$row['MISC400']."</td>";
+														echo "<td>".$row['MISC500']."</td>";
+														echo "</tr>";
+													}
+													?>																		
+												
+											</tbody>
+										</TABLE>
+
+
+
+
 									</div>
 
 								</section>
